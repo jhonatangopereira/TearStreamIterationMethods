@@ -1,0 +1,30 @@
+function [ROOT,ITER] = wegstein_solve(func, x0, xmax, xmin)
+
+ITER = 0;
+
+while ITER < 100
+
+	ITER = ITER + 1;
+
+	xi = func(x0); xm = func(xi);
+
+	slope = (xm - xi) / (xi - x0); teta = 1/(1-slope);
+	
+	if teta > xmax
+
+		teta = xmax;
+
+	elseif teta < xmin
+
+		teta = xmin;
+
+	end
+
+	x0 = (1 - teta)*xi + teta*xm;
+
+	if abs(x0 - xi) <= (1e-6)*(abs(x0))
+
+		break
+	end
+
+end

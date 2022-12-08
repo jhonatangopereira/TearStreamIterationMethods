@@ -1,0 +1,14 @@
+%--- MÉTODO DE WEGSTEIN ---
+    
+
+fprint('---MÉTODO DE WEGSTEIN---');
+
+x0 = input('Insira a estimativa inicial = ');
+
+xmax = input('Insira o limite máximo = ');
+xmin = input('Insira o limite mí­nimo = ');
+
+[ROOT, ITER] = wegstein_solve_multi(@wegstein_model, x0, xmax, xmin);
+
+fprint('A raiz é = %8.4f', ROOT)
+fprint('O número de iterações foi = %3i ', ITER)
